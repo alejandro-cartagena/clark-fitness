@@ -149,7 +149,7 @@ export default function FeaturesV2({ eyebrow = "Features" }: FeaturesV2Props) {
     >
       <Container>
         {/* Header */}
-        <header className="text-center">
+        <header className="text-center mb-6 md:mb-12">
           <span
             className="inline-block text-xs font-semibold uppercase tracking-[0.2em]"
             style={{ color: siteConfig.branding.colors.accent.primary }}
@@ -172,12 +172,12 @@ export default function FeaturesV2({ eyebrow = "Features" }: FeaturesV2Props) {
           </p>
         </header>
 
-        <h3
+        {/* <h3
           className="mt-12 text-center text-xl font-bold sm:text-2xl"
           style={{ color: siteConfig.branding.colors.text.primary }}
         >
           What You Get With Charm Fitness:
-        </h3>
+        </h3> */}
 
         {/* Mobile: 2-col cards grid, then image below */}
         <div className="mt-6 lg:mt-8">
