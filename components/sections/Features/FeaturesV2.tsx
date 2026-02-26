@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
+import Iphone from "@/components/ui/iphone";
 import { siteConfig } from "@/config/site";
 
 interface FeatureItem {
@@ -185,33 +186,25 @@ export default function FeaturesV2({ eyebrow = "Features" }: FeaturesV2Props) {
               <FeatureCard key={index} item={item} />
             ))}
           </div>
-          <div className="relative mt-8 min-h-[280px] w-full overflow-hidden rounded-xl shadow-lg ring-1 ring-black/5 sm:min-h-[320px] lg:hidden">
-            <Image
-              src={systemImageUrl}
-              alt="Charm Fitness coaching — focused training for your goals"
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority={false}
+          <div className="relative mt-8 flex min-h-[200px] w-full items-center justify-center overflow-hidden rounded-xl lg:hidden">
+            <Iphone
+              videoSrc="/videos/clark-flex-edit.mp4"
+              className="max-h-[480px] w-auto sm:max-h-[560px]"
             />
           </div>
         </div>
 
         {/* Desktop: left bullets | image | right bullets */}
-        <div className="mt-6 hidden lg:grid lg:grid-cols-[1fr_380px_1fr] lg:gap-10 lg:items-start xl:gap-14 xl:grid-cols-[1fr_420px_1fr]">
+        <div className="mt-6 hidden lg:grid lg:grid-cols-[1fr_380px_1fr] lg:gap-10 lg:items-center xl:gap-14 xl:grid-cols-[1fr_420px_1fr]">
           <ul className="space-y-6 xl:space-y-7">
             {leftFeatures.map((item, index) => (
               <CheckmarkBullet key={index} item={item} />
             ))}
           </ul>
-          <div className="relative h-[420px] w-full min-w-[320px] overflow-hidden rounded-xl shadow-lg ring-1 ring-black/5 xl:h-[480px]">
-            <Image
-              src={systemImageUrl}
-              alt="Charm Fitness coaching — focused training for your goals"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 420px, 100vw"
-              priority={false}
+          <div className="relative flex h-[420px] items-center justify-center overflow-hidden xl:h-[480px]">
+            <Iphone
+              videoSrc="/videos/clark-flex-edit.mp4"
+              className="h-full w-auto"
             />
           </div>
           <ul className="space-y-6 xl:space-y-7">

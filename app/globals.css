@@ -159,7 +159,7 @@ body {
   }
 }
 .animate-hero-zoom {
-  animation: hero-zoom 22s ease-in-out infinite alternate;
+  animation: hero-zoom 12s ease-in-out infinite alternate;
 }
 
 @layer base {

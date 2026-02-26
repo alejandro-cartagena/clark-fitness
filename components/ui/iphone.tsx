@@ -9,13 +9,6 @@ const SCREEN_WIDTH = 389.5;
 const SCREEN_HEIGHT = 843.5;
 const SCREEN_RADIUS = 55.75;
 
-const LEFT_PCT = (SCREEN_X / PHONE_WIDTH) * 100;
-const TOP_PCT = (SCREEN_Y / PHONE_HEIGHT) * 100;
-const WIDTH_PCT = (SCREEN_WIDTH / PHONE_WIDTH) * 100;
-const HEIGHT_PCT = (SCREEN_HEIGHT / PHONE_HEIGHT) * 100;
-const RADIUS_H = (SCREEN_RADIUS / SCREEN_WIDTH) * 100;
-const RADIUS_V = (SCREEN_RADIUS / SCREEN_HEIGHT) * 100;
-
 export interface IphoneProps extends HTMLAttributes<HTMLDivElement> {
   src?: string;
   videoSrc?: string;
@@ -43,48 +36,6 @@ export default function Iphone({
       }}
       {...props}
     >
-      {hasVideo && (
-        <div
-          className="pointer-events-none absolute z-0 overflow-hidden"
-          style={{
-            left: `${LEFT_PCT}%`,
-            top: `${TOP_PCT}%`,
-            width: `${WIDTH_PCT}%`,
-            height: `${HEIGHT_PCT}%`,
-            borderRadius: `${RADIUS_H}% / ${RADIUS_V}%`,
-          }}
-        >
-          <video
-            className="block size-full object-cover"
-            src={videoSrc}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-          />
-        </div>
-      )}
-
-      {!hasVideo && src ? (
-        <div
-          className="pointer-events-none absolute z-0 overflow-hidden"
-          style={{
-            left: `${LEFT_PCT}%`,
-            top: `${TOP_PCT}%`,
-            width: `${WIDTH_PCT}%`,
-            height: `${HEIGHT_PCT}%`,
-            borderRadius: `${RADIUS_H}% / ${RADIUS_V}%`,
-          }}
-        >
-          <img
-            src={src}
-            alt=""
-            className="block size-full object-cover object-top"
-          />
-        </div>
-      ) : null}
-
       <svg
         viewBox={`0 0 ${PHONE_WIDTH} ${PHONE_HEIGHT}`}
         fill="none"
@@ -92,6 +43,88 @@ export default function Iphone({
         className="absolute inset-0 size-full"
         style={{ transform: "translateZ(0)" }}
       >
+        <defs>
+          <mask id={maskId} maskUnits="userSpaceOnUse">
+            <rect
+              x="0"
+              y="0"
+              width={PHONE_WIDTH}
+              height={PHONE_HEIGHT}
+              fill="white"
+            />
+            <rect
+              x={SCREEN_X}
+              y={SCREEN_Y}
+              width={SCREEN_WIDTH}
+              height={SCREEN_HEIGHT}
+              rx={SCREEN_RADIUS}
+              ry={SCREEN_RADIUS}
+              fill="black"
+            />
+          </mask>
+          <clipPath id={clipId} clipPathUnits="userSpaceOnUse">
+            <rect
+              x={SCREEN_X}
+              y={SCREEN_Y}
+              width={SCREEN_WIDTH}
+              height={SCREEN_HEIGHT}
+              rx={SCREEN_RADIUS}
+              ry={SCREEN_RADIUS}
+            />
+          </clipPath>
+        </defs>
+
+        {/* Media inside SVG so clipPath is in same coordinate space — no leakage */}
+        {hasVideo && (
+          <g clipPath={`url(#${clipId})`}>
+            <foreignObject
+              x={SCREEN_X}
+              y={SCREEN_Y}
+              width={SCREEN_WIDTH}
+              height={SCREEN_HEIGHT}
+              style={{ overflow: "hidden" }}
+            >
+              <div
+                className="size-full overflow-hidden"
+                style={{ width: "100%", height: "100%", overflow: "hidden" }}
+              >
+                <video
+                  className="block size-full object-cover"
+                  src={videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                />
+              </div>
+            </foreignObject>
+          </g>
+        )}
+
+        {!hasVideo && src ? (
+          <g clipPath={`url(#${clipId})`}>
+            <foreignObject
+              x={SCREEN_X}
+              y={SCREEN_Y}
+              width={SCREEN_WIDTH}
+              height={SCREEN_HEIGHT}
+              style={{ overflow: "hidden" }}
+            >
+              <div
+                className="size-full overflow-hidden"
+                style={{ width: "100%", height: "100%", overflow: "hidden" }}
+              >
+                <img
+                  src={src}
+                  alt=""
+                  className="block size-full object-cover object-top"
+                />
+              </div>
+            </foreignObject>
+          </g>
+        ) : null}
+
         <g mask={hasMedia ? `url(#${maskId})` : undefined}>
           <path
             d="M2 73C2 32.6832 34.6832 0 75 0H357C397.317 0 430 32.6832 430 73V809C430 849.317 397.317 882 357 882H75C34.6832 882 2 849.317 2 809V73Z"
@@ -143,37 +176,6 @@ export default function Iphone({
           d="M254 48.5C254 45.4624 256.462 43 259.5 43C262.538 43 265 45.4624 265 48.5C265 51.5376 262.538 54 259.5 54C256.462 54 254 51.5376 254 48.5Z"
           className="fill-[#404040] dark:fill-[#404040]"
         />
-
-        <defs>
-          <mask id={maskId} maskUnits="userSpaceOnUse">
-            <rect
-              x="0"
-              y="0"
-              width={PHONE_WIDTH}
-              height={PHONE_HEIGHT}
-              fill="white"
-            />
-            <rect
-              x={SCREEN_X}
-              y={SCREEN_Y}
-              width={SCREEN_WIDTH}
-              height={SCREEN_HEIGHT}
-              rx={SCREEN_RADIUS}
-              ry={SCREEN_RADIUS}
-              fill="black"
-            />
-          </mask>
-          <clipPath id={clipId}>
-            <rect
-              x={SCREEN_X}
-              y={SCREEN_Y}
-              width={SCREEN_WIDTH}
-              height={SCREEN_HEIGHT}
-              rx={SCREEN_RADIUS}
-              ry={SCREEN_RADIUS}
-            />
-          </clipPath>
-        </defs>
       </svg>
     </div>
   );

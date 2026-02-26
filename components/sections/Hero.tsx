@@ -19,7 +19,7 @@ export default function Hero({
   titleLines = ["Unlock the path to", "your dream", "physique."],
   ctaLabel = "Join My Team",
   ctaHref = "/#contact",
-  backgroundImageUrl = "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  backgroundImageUrl = "/images/clark-outdoor-flexv4.jpeg",
   overlayClassName = "bg-black/60",
 }: HeroProps) {
   return (
@@ -27,9 +27,9 @@ export default function Hero({
       aria-label="Hero"
       className="relative isolate h-screen min-h-[520px] w-full overflow-hidden"
     >
-      {/* Background image */}
+      {/* Background image with slow zoom */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 origin-center bg-cover bg-center animate-hero-zoom"
         style={{ backgroundImage: `url(${backgroundImageUrl})` }}
         aria-hidden="true"
       />
