@@ -136,8 +136,11 @@ function ProgramCard({ program }: { program: Program }) {
 
   return (
     <article
-      className="relative flex flex-col rounded-2xl border bg-white p-6 shadow-md ring-1 ring-black/5 sm:p-8"
-      style={{ borderColor: colors.border }}
+      className="relative flex flex-col rounded-2xl border p-6 shadow-md ring-1 ring-black/10 sm:p-8"
+      style={{
+        borderColor: colors.border,
+        backgroundColor: colors.background.secondary,
+      }}
     >
       {program.isPopular && (
         <div

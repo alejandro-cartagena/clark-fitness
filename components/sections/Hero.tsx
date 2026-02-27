@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
+import { siteConfig } from "@/config/site";
 import { Montserrat } from "next/font/google";
 
 const mont = Montserrat({
@@ -40,8 +41,9 @@ export default function Hero({
       <Container className="relative z-10 grid h-full place-items-center text-center">
         <div className="flex flex-col items-center">
           <h1
-            className="font-extrabold uppercase tracking-tight text-[var(--text-inverse)]"
+            className="font-extrabold uppercase tracking-tight"
             style={{
+              color: siteConfig.branding.colors.text.primary,
               textShadow: "2px 2px 4px rgba(0,0,0,0.85), 0 2px 10px rgba(0,0,0,0.60)",
             }}
           >
@@ -57,13 +59,15 @@ export default function Hero({
           </h1>
 
           {/* Accent underline */}
-          <div className="mt-3 h-1 w-20 bg-[var(--accent-primary)] sm:w-24" aria-hidden="true" />
+          <div className="mt-3 h-1 w-20 sm:w-24" style={{ backgroundColor: siteConfig.branding.colors.accent.primary }} aria-hidden="true" />
 
           {/* CTA */}
           <div className={`mt-6 ${mont.className}`}>
-            <Button href={ctaHref} variant="primary" className="text-base md:text-xl shadow-sm">
-              {ctaLabel}
-            </Button>
+            <span className="hero-cta-glow inline-flex rounded-md">
+              <Button href={ctaHref} variant="highlight" className="text-base md:text-xl shadow-sm">
+                {ctaLabel}
+              </Button>
+            </span>
           </div>
         </div>
       </Container>

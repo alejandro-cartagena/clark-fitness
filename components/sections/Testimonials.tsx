@@ -71,8 +71,11 @@ const testimonials: Testimonial[] = [
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
     <article
-      className="flex h-full flex-col rounded-xl border bg-white shadow-md ring-1 ring-black/5 overflow-hidden"
-      style={{ borderColor: siteConfig.branding.colors.border }}
+      className="flex h-full flex-col rounded-xl border shadow-md ring-1 ring-black/10 overflow-hidden"
+      style={{
+        borderColor: siteConfig.branding.colors.border,
+        backgroundColor: siteConfig.branding.colors.background.secondary,
+      }}
     >
       {/* Before / After side by side */}
       <div className="grid grid-cols-2 gap-px bg-zinc-200">

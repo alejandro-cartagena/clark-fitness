@@ -44,19 +44,29 @@ export default function Navbar() {
   }, [isOpen]);
 
   const navBg = isScrolled
-    ? "bg-white/90 backdrop-blur-md border-b border-black/5 shadow-sm"
+    ? "backdrop-blur-md border-b shadow-sm"
     : "bg-transparent border-b border-transparent";
+  const navBgStyle = isScrolled
+    ? {
+        backgroundColor: `${siteConfig.branding.colors.background.secondary}ee`,
+        borderColor: siteConfig.branding.colors.border,
+      }
+    : undefined;
   const textClass = isScrolled
-    ? "text-zinc-900 hover:text-zinc-700"
+    ? "text-[var(--text-primary)] hover:text-[var(--accent-primary)]"
     : "text-white hover:text-white/90";
   const burgerClass = isScrolled
-    ? "border-zinc-200 bg-white text-zinc-900 hover:bg-zinc-50"
+    ? "border-[var(--border)] hover:bg-[var(--highlight-primary)]"
     : "border-white/30 bg-white/10 text-white hover:bg-white/20";
+  const burgerStyle = isScrolled
+    ? { backgroundColor: "var(--bg-secondary)", color: "var(--text-primary)" }
+    : undefined;
 
   return (
     <>
       <nav
         className={`fixed inset-x-0 top-0 z-50 h-16 transition-all duration-300 ${navBg}`}
+        style={navBgStyle}
         aria-label="Main navigation"
       >
         <Container className="flex h-full w-full items-center justify-between">
@@ -90,6 +100,7 @@ export default function Navbar() {
             aria-controls="mobile-sidebar"
             aria-expanded={isOpen}
             onClick={() => setIsOpen((v) => !v)}
+            style={burgerStyle}
             className={`cursor-pointer relative z-50 inline-flex h-10 w-10 items-center justify-center rounded-md border transition active:scale-95 md:hidden ${burgerClass}`}
           >
             {/* Burger → X animation */}
@@ -97,7 +108,7 @@ export default function Navbar() {
             <span
               className={`absolute block h-0.5 w-5 transform rounded transition-all duration-300 ease-in-out ${
                 isOpen ? "translate-y-0 rotate-45" : "-translate-y-1.5 rotate-0 bg-current"
-              } ${isOpen && !isScrolled ? "bg-white" : isOpen ? "bg-zinc-900" : ""}`}
+              } ${isOpen && !isScrolled ? "bg-white" : isOpen ? "bg-current" : ""}`}
             />
             <span
               className={`absolute block h-0.5 w-5 transform rounded transition-all duration-300 ease-in-out ${
@@ -107,7 +118,7 @@ export default function Navbar() {
             <span
               className={`absolute block h-0.5 w-5 transform rounded transition-all duration-300 ease-in-out ${
                 isOpen ? "translate-y-0 -rotate-45" : "translate-y-1.5 rotate-0 bg-current"
-              } ${isOpen && !isScrolled ? "bg-white" : isOpen ? "bg-zinc-900" : ""}`}
+              } ${isOpen && !isScrolled ? "bg-white" : isOpen ? "bg-current" : ""}`}
             />
           </button>
         </Container>
@@ -126,17 +137,31 @@ export default function Navbar() {
       <aside
         id="mobile-sidebar"
         aria-hidden={!isOpen}
-        className={`fixed right-0 top-0 z-[70] h-full w-[75%] max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-in-out will-change-transform md:hidden ${
+        className={`fixed right-0 top-0 z-[70] h-full w-[75%] max-w-sm shadow-2xl transition-transform duration-300 ease-in-out will-change-transform md:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
+        style={{
+          backgroundColor: siteConfig.branding.colors.background.secondary,
+          borderLeft: `1px solid ${siteConfig.branding.colors.border}`,
+        }}
       >
-        <div className="flex h-16 items-center justify-between border-b border-zinc-100 px-4">
-          <span className="text-base font-semibold">{siteConfig?.name ?? "Brand"}</span>
+        <div
+          className="flex h-16 items-center justify-between border-b px-4"
+          style={{ borderColor: siteConfig.branding.colors.border }}
+        >
+          <span className="text-base font-semibold" style={{ color: siteConfig.branding.colors.text.primary }}>
+            {siteConfig?.name ?? "Brand"}
+          </span>
           <button
             type="button"
             aria-label="Close menu"
             onClick={() => setIsOpen(false)}
-            className="cursor-pointer inline-flex h-9 w-9 items-center justify-center rounded-md border border-zinc-200 bg-white text-zinc-900 transition hover:bg-zinc-50 active:scale-95"
+            className="cursor-pointer inline-flex h-9 w-9 items-center justify-center rounded-md border transition hover:opacity-90 active:scale-95"
+            style={{
+              borderColor: siteConfig.branding.colors.border,
+              backgroundColor: siteConfig.branding.colors.background.primary,
+              color: siteConfig.branding.colors.text.primary,
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +185,10 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block rounded-md px-3 py-2 text-sm font-medium tracking-wide text-zinc-800 transition-colors hover:bg-zinc-50"
+                  className="block rounded-md px-3 py-2 text-sm font-medium tracking-wide transition-colors hover:opacity-90"
+                  style={{
+                    color: siteConfig.branding.colors.text.primary,
+                  }}
                 >
                   {item.label}
                 </Link>

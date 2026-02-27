@@ -12,7 +12,7 @@ const mont = Montserrat({
 
 const { colors } = siteConfig.branding;
 
-export type ButtonVariant = "primary" | "outline" | "inverse";
+export type ButtonVariant = "primary" | "highlight" | "highlightoutline" | "outline" | "inverse";
 
 export interface ButtonProps {
   children: ReactNode;
@@ -30,6 +30,7 @@ export interface ButtonProps {
   borderColor?: string;
   className?: string;
   "aria-label"?: string;
+  "aria-pressed"?: boolean;
   type?: "button" | "submit" | "reset";
 }
 
@@ -48,6 +49,19 @@ const variantStyles: Record<
     backgroundColor: colors.accent.primary,
     hoverColor: colors.text.inverse,
     hoverBackgroundColor: colors.accent.hover,
+  },
+  highlight: {
+    color: colors.text.primary,
+    backgroundColor: colors.highlight.primary,
+    hoverColor: colors.text.primary,
+    hoverBackgroundColor: colors.highlight.hover,
+  },
+  highlightoutline: {
+    color: colors.text.primary,
+    backgroundColor: colors.background.primary,
+    hoverColor: colors.text.primary,
+    hoverBackgroundColor: colors.highlight.hover,
+    borderColor: colors.highlight.primary,
   },
   outline: {
     color: colors.accent.primary,
@@ -78,6 +92,7 @@ export default function Button({
   borderColor,
   className = "",
   "aria-label": ariaLabel,
+  "aria-pressed": ariaPressed,
   type = "button",
 }: ButtonProps) {
   const v = variantStyles[variant];
@@ -114,7 +129,11 @@ export default function Button({
   }
 
   return (
-    <button type={type} {...commonProps}>
+    <button
+      type={type}
+      {...commonProps}
+      {...(ariaPressed !== undefined && { "aria-pressed": ariaPressed })}
+    >
       {children}
     </button>
   );

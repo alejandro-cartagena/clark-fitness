@@ -92,8 +92,11 @@ export default function Faq({ eyebrow = "Support" }: FaqProps) {
         </header>
 
         <div
-          className="mt-10 overflow-hidden rounded-2xl border bg-white shadow-sm sm:mt-12"
-          style={{ borderColor: siteConfig.branding.colors.border }}
+          className="mt-10 overflow-hidden rounded-2xl border shadow-sm sm:mt-12"
+          style={{
+            borderColor: siteConfig.branding.colors.border,
+            backgroundColor: siteConfig.branding.colors.background.secondary,
+          }}
         >
           <div className="divide-y-0 px-4 sm:px-6">
             {defaultFaqs.map((item, index) => (

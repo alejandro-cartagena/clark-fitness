@@ -3,11 +3,11 @@ import Container from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 
 const imageMain =
-  "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop";
+  "/images/clark-gym-flexv4.jpeg";
 const imageSmall1 =
-  "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=600&auto=format&fit=crop";
+  "/images/clark-outdoor-flexv2.jpeg";
 const imageSmall2 =
-  "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop";
+  "/images/clark-gym-flexv6.jpeg";
 
 const paragraph1 =
   "I wasn’t born with a great physique. I built it through years of trial and error, learning what actually works for muscle gain and fat loss—and what doesn’t. That journey is why I coach the way I do: no fluff, no fads, just clear programming and accountability so you get results that last.";
@@ -39,7 +39,10 @@ export default function About({
           {/* Left: image collage — top row: two images; bottom row: full-width on tablet and down */}
           <div className="min-w-0 grid grid-cols-2 grid-rows-[auto_auto] gap-3 sm:gap-4">
             {/* Top left */}
-            <div className="relative aspect-[3/4] overflow-hidden rounded-xl border-2 border-zinc-300 bg-zinc-100 shadow-[0_4px_14px_rgba(0,0,0,0.12)] col-start-1 row-start-1">
+            <div
+              className="relative aspect-[3/4] overflow-hidden rounded-xl border-2 shadow-[0_4px_14px_rgba(0,0,0,0.3)] col-start-1 row-start-1"
+              style={{ borderColor: siteConfig.branding.colors.border, backgroundColor: siteConfig.branding.colors.background.primary }}
+            >
               <Image
                 src={imageSmall1}
                 alt="Fitness trainer — training and lifestyle"
@@ -49,7 +52,10 @@ export default function About({
               />
             </div>
             {/* Top right — on lg spans both rows */}
-            <div className="relative aspect-[3/4] overflow-hidden rounded-xl border-2 border-zinc-300 bg-zinc-100 shadow-[0_4px_14px_rgba(0,0,0,0.12)] col-start-2 row-start-1 lg:row-span-2 lg:aspect-[3/5] lg:self-center">
+            <div
+              className="relative aspect-[3/4] overflow-hidden rounded-xl border-2 shadow-[0_4px_14px_rgba(0,0,0,0.3)] col-start-2 row-start-1 lg:row-span-2 lg:aspect-[3/5] lg:self-center"
+              style={{ borderColor: siteConfig.branding.colors.border, backgroundColor: siteConfig.branding.colors.background.primary }}
+            >
               <Image
                 src={imageMain}
                 alt="Fitness trainer — about"
@@ -59,12 +65,15 @@ export default function About({
               />
             </div>
             {/* Bottom — full width on tablet and down, shorter height; left column only on lg */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl border-2 border-zinc-300 bg-zinc-100 shadow-[0_4px_14px_rgba(0,0,0,0.12)] col-span-2 col-start-1 row-start-2 lg:col-span-1 lg:aspect-[3/4]">
+            <div
+              className="relative aspect-[4/3] overflow-hidden rounded-xl border-2 shadow-[0_4px_14px_rgba(0,0,0,0.3)] col-span-2 col-start-1 row-start-2 lg:col-span-1 lg:aspect-[3/4]"
+              style={{ borderColor: siteConfig.branding.colors.border, backgroundColor: siteConfig.branding.colors.background.primary }}
+            >
               <Image
                 src={imageSmall2}
                 alt="Fitness trainer — gym and coaching"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(max-width: 1023px) 100vw, 200px"
               />
             </div>

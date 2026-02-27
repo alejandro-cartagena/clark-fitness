@@ -40,19 +40,23 @@ export const siteConfig = {
   branding: {
     colors: {
       background: {
-        primary: "#FFFFFF",
-        secondary: "#ece7e3",
+        primary: "#0B0F1A",   // deep blue-black
+        secondary: "#121826", // layered dark navy
       },
       text: {
-        primary: "#18181b",
-        secondary: "#52525b",
-        inverse: "#FFFFFF",
+        primary: "#F9FAFB",   // clean white
+        secondary: "#9CA3AF", // muted gray
+        inverse: "#0B0F1A",   // text on light / accent buttons
       },
       accent: {
-        primary: "#91171f",
-        hover: "#7c131a",
+        primary: "#3B82F6",   // electric blue
+        hover: "#2563EB",
       },
-      border: "#e5e5e5",
+      highlight: {
+        primary: "#7C3AED",   // rich purple
+        hover: "#6D28D9",
+      },
+      border: "#1F2937",
     },
   },
 } as const;

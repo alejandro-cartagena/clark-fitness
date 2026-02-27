@@ -65,7 +65,11 @@ export default function WhyMe({
           {bullets.map((text, index) => (
             <li
               key={index}
-              className="flex items-start gap-4 rounded-lg border border-(--border) bg-white/80 px-4 py-3 shadow-sm ring-1 ring-black/5 transition hover:shadow-md sm:gap-5 sm:px-5 sm:py-4"
+              className="flex items-start gap-4 rounded-lg border px-4 py-3 shadow-sm ring-1 ring-black/10 transition hover:shadow-md sm:gap-5 sm:px-5 sm:py-4"
+              style={{
+                borderColor: siteConfig.branding.colors.border,
+                backgroundColor: siteConfig.branding.colors.background.secondary,
+              }}
             >
               <span
                 className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-white sm:h-7 sm:w-7"
@@ -83,7 +87,7 @@ export default function WhyMe({
 
         {/* CTA */}
         <div className={`mt-10 flex justify-center sm:mt-12 ${mont.className}`}>
-          <Button href={ctaHref} variant="outline" className="rounded-lg px-8 py-3">
+          <Button href={ctaHref} variant="highlightoutline" className="rounded-lg px-8 py-3">
             {ctaText}
           </Button>
         </div>

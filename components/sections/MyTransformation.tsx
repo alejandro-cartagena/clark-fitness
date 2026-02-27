@@ -81,10 +81,10 @@ function AnimatedStat({ value, label, isVisible }: AnimatedStatProps) {
 
   return (
     <div className="text-center">
-      <dt className="text-2xl font-extrabold tracking-tight text-(--accent-primary) sm:text-3xl">
+      <dt className="text-2xl font-extrabold tracking-tight text-(--highlight-primary) sm:text-3xl">
         {displayValue}
       </dt>
-      <dd className="mt-1 text-sm font-medium uppercase tracking-wider text-zinc-500">
+      <dd className="mt-1 text-sm font-medium uppercase tracking-wider text-(--text-secondary)">
         {label}
       </dd>
     </div>
@@ -102,7 +102,7 @@ export default function MyTransformation({
   heading = "From Where I Was to Who I Am",
   subheading = "I didn’t just change my body—I rebuilt my habits, discipline, and confidence. Now I help others do the same.",
   beforeImageUrl = "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop",
-  afterImageUrl = "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=800&auto=format&fit=crop",
+  afterImageUrl = "/images/clark-gym-flexv4.jpeg",
   beforeLabel = "Before",
   afterLabel = "After",
   quote = "If I can do it, you can too. It starts with one decision.",
@@ -155,7 +155,7 @@ export default function MyTransformation({
         >
           {heading}
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-zinc-600 sm:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-(--text-secondary) sm:text-lg">
           {subheading}
         </p>
 
@@ -163,7 +163,13 @@ export default function MyTransformation({
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Before */}
           <div className="group relative">
-            <div className="overflow-hidden rounded-2xl border border-(--border) bg-white shadow-lg ring-1 ring-black/5 transition duration-300 group-hover:shadow-xl">
+            <div
+              className="overflow-hidden rounded-2xl border shadow-lg ring-1 ring-black/10 transition duration-300 group-hover:shadow-xl"
+              style={{
+                borderColor: "var(--border)",
+                backgroundColor: "var(--bg-secondary)",
+              }}
+            >
               <div className="relative aspect-5/5 w-full overflow-hidden bg-zinc-100">
                 <Image
                   src={beforeImageUrl}
@@ -188,14 +194,20 @@ export default function MyTransformation({
 
           {/* After */}
           <div className="group relative">
-            <div className="overflow-hidden rounded-2xl border border-(--border) bg-white shadow-lg ring-1 ring-black/5 transition duration-300 group-hover:shadow-xl">
+            <div
+              className="overflow-hidden rounded-2xl border shadow-lg ring-1 ring-black/10 transition duration-300 group-hover:shadow-xl"
+              style={{
+                borderColor: "var(--border)",
+                backgroundColor: "var(--bg-secondary)",
+              }}
+            >
               <div className="relative aspect-5/5 w-full overflow-hidden bg-zinc-100">
                 <Image
                   src={afterImageUrl}
                   alt="After transformation"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+                  className="object-cover object-[25%_75%] transition duration-500 group-hover:scale-[1.02]"
                   priority={false}
                 />
                 <div

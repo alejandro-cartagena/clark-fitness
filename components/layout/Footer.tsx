@@ -6,18 +6,29 @@ import SocialIcons from "@/components/ui/SocialIcons";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { colors } = siteConfig.branding;
 
   return (
-    <footer className="bg-zinc-900 text-zinc-300">
+    <footer
+      className="border-t"
+      style={{
+        backgroundColor: colors.background.secondary,
+        borderColor: colors.border,
+        color: colors.text.secondary,
+      }}
+    >
       <Container>
         {/* Top section: CTA on left, socials on right */}
         <div className="flex flex-col items-start justify-between gap-6 py-8 sm:flex-row sm:items-center sm:gap-8">
           <div className="max-w-xl text-center md:text-left mx-auto md:mx-0">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
-                Commit to the Change
+            <p
+              className="text-[10px] font-semibold uppercase tracking-[0.2em]"
+              style={{ color: colors.highlight.primary }}
+            >
+              Commit to the Change
             </p>
-            <h3 className="mt-1 text-xl font-semibold text-zinc-100 sm:text-2xl">
-                Get Started Now
+            <h3 className="mt-1 text-xl font-semibold sm:text-2xl" style={{ color: colors.text.primary }}>
+              Get Started Now
             </h3>
             <div className="mt-4">
               <Button
@@ -32,11 +43,16 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="sm:hidden h-px w-full bg-white/10" />
+          <div className="sm:hidden h-px w-full" style={{ backgroundColor: colors.border }} />
 
           <div className="flex flex-col md:flex-row gap-6 text-center md:text-left mx-auto md:mx-0">
             {siteConfig.navigation.map((item) => (
-              <Link key={item.href} href={item.href} className="text-sm uppercase tracking-wider text-zinc-400 transition-colors hover:text-zinc-100">
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm uppercase tracking-wider transition-colors hover:opacity-90"
+                style={{ color: colors.text.secondary }}
+              >
                 {item.label}
               </Link>
             ))}
@@ -50,7 +66,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px w-full bg-white/10" />
+        <div className="h-px w-full" style={{ backgroundColor: colors.border }} />
 
         {/* Bottom section: Copyright */}
         <div className="flex items-center justify-between py-6">

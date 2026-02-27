@@ -232,11 +232,12 @@ export default function Marquee() {
           Student Wins
         </span>
         <h2
-          className="mt-4 font-montserrat text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl md:text-5xl"
+          className="mt-4 font-montserrat text-3xl font-bold tracking-tight"
+          style={{ color: branding.colors.text.primary }}
         >
           Become Our Next Success Story
         </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
+        <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed" style={{ color: branding.colors.text.secondary }}>
           Real transformations from people who committed to the program—weight
           loss, strength gains, and lasting habits.
         </p>

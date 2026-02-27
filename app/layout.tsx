@@ -37,12 +37,16 @@ export default function RootLayout({
         className="antialiased min-h-screen flex flex-col overflow-x-hidden"
         style={
           {
+            backgroundColor: siteConfig.branding.colors.background.primary,
             "--bg-primary": siteConfig.branding.colors.background.primary,
             "--bg-secondary": siteConfig.branding.colors.background.secondary,
             "--text-primary": siteConfig.branding.colors.text.primary,
+            "--text-secondary": siteConfig.branding.colors.text.secondary,
             "--text-inverse": siteConfig.branding.colors.text.inverse,
             "--accent-primary": siteConfig.branding.colors.accent.primary,
             "--accent-hover": siteConfig.branding.colors.accent.hover,
+            "--highlight-primary": siteConfig.branding.colors.highlight.primary,
+            "--highlight-hover": siteConfig.branding.colors.highlight.hover,
             "--border": siteConfig.branding.colors.border,
           } as React.CSSProperties
         } 
