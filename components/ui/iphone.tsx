@@ -88,7 +88,6 @@ export default function Iphone({
               style={{ overflow: "hidden" }}
             >
               <div
-                xmlns="http://www.w3.org/1999/xhtml"
                 className="size-full min-w-0 overflow-hidden"
                 style={{
                   width: "100%",
