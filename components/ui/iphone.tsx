@@ -27,6 +27,39 @@ export default function Iphone({
   const maskId = `iphone-mask-${String(rawId).replace(/:/g, "")}`;
   const clipId = `iphone-clip-${String(rawId).replace(/:/g, "")}`;
 
+  /** Screen rect as % of phone dimensions (for mobile video div positioning) */
+  const screenLeftPct = (SCREEN_X / PHONE_WIDTH) * 100;
+  const screenTopPct = (SCREEN_Y / PHONE_HEIGHT) * 100;
+  const screenWidthPct = (SCREEN_WIDTH / PHONE_WIDTH) * 100;
+  const screenHeightPct = (SCREEN_HEIGHT / PHONE_HEIGHT) * 100;
+  const screenRadiusHPct = (SCREEN_RADIUS / SCREEN_WIDTH) * 100;
+  const screenRadiusVPct = (SCREEN_RADIUS / SCREEN_HEIGHT) * 100;
+
+  /** Mobile: video in a div positioned in the screen cutout (behind SVG frame) to avoid iOS foreignObject clip bugs */
+  const mobileVideoLayer = hasVideo && videoSrc && (
+    <div
+      className="absolute overflow-hidden lg:hidden"
+      style={{
+        left: `${screenLeftPct}%`,
+        top: `${screenTopPct}%`,
+        width: `${screenWidthPct}%`,
+        height: `${screenHeightPct}%`,
+        borderRadius: `${screenRadiusHPct}% / ${screenRadiusVPct}%`,
+        zIndex: 0,
+      }}
+    >
+      <video
+        className="block size-full object-cover"
+        src={videoSrc}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+      />
+    </div>
+  );
+
   return (
     <div
       className={`relative inline-block w-full max-w-full align-middle leading-none ${className ?? ""}`}
@@ -36,12 +69,13 @@ export default function Iphone({
       }}
       {...props}
     >
+      {mobileVideoLayer}
       <svg
         viewBox={`0 0 ${PHONE_WIDTH} ${PHONE_HEIGHT}`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="absolute inset-0 size-full"
-        style={{ transform: "translateZ(0)" }}
+        style={{ transform: "translateZ(0)", zIndex: 1 }}
       >
         <defs>
           <mask id={maskId} maskUnits="userSpaceOnUse">
@@ -74,11 +108,12 @@ export default function Iphone({
           </clipPath>
         </defs>
 
-        {/* Media inside SVG so clipPath is in same coordinate space — no leakage */}
+        {/* Desktop only: video inside SVG (foreignObject clips correctly on desktop) */}
         {hasVideo && (
           <g
             clipPath={`url(#${clipId})`}
             style={{ isolation: "isolate" }}
+            className="hidden lg:block"
           >
             <foreignObject
               x={SCREEN_X}

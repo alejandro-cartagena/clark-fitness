@@ -186,11 +186,13 @@ export default function FeaturesV2({ eyebrow = "Features" }: FeaturesV2Props) {
               <FeatureCard key={index} item={item} />
             ))}
           </div>
-          <div className="relative mt-8 flex min-h-[200px] w-full max-w-full items-center justify-center overflow-hidden rounded-xl lg:hidden">
-            <Iphone
-              videoSrc="/videos/clark-flex-edit.mp4"
-              className="max-h-[380px] w-auto max-w-full lg:max-h-[560px]"
-            />
+          <div className="relative mt-8 flex min-h-[200px] w-full items-center justify-center overflow-hidden rounded-xl lg:hidden">
+            <div className="mx-auto w-full max-w-[260px] sm:max-w-[280px]">
+              <Iphone
+                videoSrc="/videos/clark-flex-edit.mp4"
+                className="w-full"
+              />
+            </div>
           </div>
         </div>
 
