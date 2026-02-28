@@ -143,7 +143,7 @@ interface FeaturesV2Props {
 export default function FeaturesV2({ eyebrow = "Features" }: FeaturesV2Props) {
   return (
     <section
-      className="w-full py-16 sm:py-20 lg:py-24"
+      className="w-full overflow-x-hidden py-16 sm:py-20 lg:py-24"
       style={{ backgroundColor: siteConfig.branding.colors.background.secondary }}
       aria-labelledby="features-v2-heading"
     >
@@ -186,10 +186,10 @@ export default function FeaturesV2({ eyebrow = "Features" }: FeaturesV2Props) {
               <FeatureCard key={index} item={item} />
             ))}
           </div>
-          <div className="relative mt-8 flex min-h-[200px] w-full items-center justify-center overflow-hidden rounded-xl lg:hidden">
+          <div className="relative mt-8 flex min-h-[200px] w-full max-w-full items-center justify-center overflow-hidden rounded-xl lg:hidden">
             <Iphone
               videoSrc="/videos/clark-flex-edit.mp4"
-              className="max-h-[480px] w-auto sm:max-h-[560px]"
+              className="max-h-[380px] w-auto max-w-full lg:max-h-[560px]"
             />
           </div>
         </div>

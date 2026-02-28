@@ -29,7 +29,7 @@ export default function Iphone({
 
   return (
     <div
-      className={`relative inline-block w-full align-middle leading-none ${className ?? ""}`}
+      className={`relative inline-block w-full max-w-full align-middle leading-none ${className ?? ""}`}
       style={{
         aspectRatio: `${PHONE_WIDTH}/${PHONE_HEIGHT}`,
         ...style,
@@ -76,7 +76,10 @@ export default function Iphone({
 
         {/* Media inside SVG so clipPath is in same coordinate space — no leakage */}
         {hasVideo && (
-          <g clipPath={`url(#${clipId})`}>
+          <g
+            clipPath={`url(#${clipId})`}
+            style={{ isolation: "isolate" }}
+          >
             <foreignObject
               x={SCREEN_X}
               y={SCREEN_Y}
@@ -85,17 +88,24 @@ export default function Iphone({
               style={{ overflow: "hidden" }}
             >
               <div
-                className="size-full overflow-hidden"
-                style={{ width: "100%", height: "100%", overflow: "hidden" }}
+                xmlns="http://www.w3.org/1999/xhtml"
+                className="size-full min-w-0 overflow-hidden"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  overflow: "hidden",
+                  boxSizing: "border-box",
+                }}
               >
                 <video
-                  className="block size-full object-cover"
+                  className="block size-full min-w-0 object-cover"
                   src={videoSrc}
                   autoPlay
                   loop
                   muted
                   playsInline
                   preload="metadata"
+                  style={{ maxWidth: "100%", maxHeight: "100%" }}
                 />
               </div>
             </foreignObject>
