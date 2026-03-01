@@ -37,7 +37,7 @@ const defaultPrograms: Program[] = [
     price: "149",
     pricePeriod: "/month",
     ctaText: "Get Started",
-    ctaHref: "/#contact",
+    ctaHref: siteConfig.applyPath,
     isCurrentPlan: false,
     isPopular: false,
     icon: "foundation",
@@ -55,7 +55,7 @@ const defaultPrograms: Program[] = [
     price: "299",
     pricePeriod: "/month",
     ctaText: "Get Transformation",
-    ctaHref: "/#contact",
+    ctaHref: siteConfig.applyPath,
     isPopular: true,
     icon: "transformation",
     features: [
@@ -74,7 +74,7 @@ const defaultPrograms: Program[] = [
     price: "499",
     pricePeriod: "/month",
     ctaText: "Get Elite",
-    ctaHref: "/#contact",
+    ctaHref: siteConfig.applyPath,
     icon: "elite",
     features: [
       { text: "Everything in Transformation" },

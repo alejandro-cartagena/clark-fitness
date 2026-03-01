@@ -32,15 +32,18 @@ export default function Navbar() {
     el?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // Scroll: transparent at top, solid when scrolled
+  const isApplyPage = pathname === "/apply";
+
+  // Scroll: transparent at top, solid when scrolled (skip on /apply – always solid there)
   useEffect(() => {
+    if (isApplyPage) return;
     function handleScroll() {
       setIsScrolled(window.scrollY > SCROLL_THRESHOLD);
     }
     handleScroll(); // run once for SSR / initial state
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isApplyPage]);
 
   // Close on Escape
   useEffect(() => {
@@ -64,29 +67,32 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  const navBg = isScrolled
+  const showSolidNav = isScrolled || isApplyPage;
+  const isFixed = !isApplyPage;
+
+  const navBg = showSolidNav
     ? "backdrop-blur-md border-b shadow-sm"
     : "bg-transparent border-b border-transparent";
-  const navBgStyle = isScrolled
+  const navBgStyle = showSolidNav
     ? {
         backgroundColor: `${siteConfig.branding.colors.background.secondary}ee`,
         borderColor: siteConfig.branding.colors.border,
       }
     : undefined;
-  const textClass = isScrolled
+  const textClass = showSolidNav
     ? "text-[var(--text-primary)] hover:text-[var(--accent-primary)]"
     : "text-white hover:text-white/90";
-  const burgerClass = isScrolled
+  const burgerClass = showSolidNav
     ? "border-[var(--border)] hover:bg-[var(--highlight-primary)]"
     : "border-white/30 bg-white/10 text-white hover:bg-white/20";
-  const burgerStyle = isScrolled
+  const burgerStyle = showSolidNav
     ? { backgroundColor: "var(--bg-secondary)", color: "var(--text-primary)" }
     : undefined;
 
   return (
     <>
       <nav
-        className={`fixed inset-x-0 top-0 z-50 h-20 transition-all duration-300 ${navBg}`}
+        className={`z-50 h-20 transition-all duration-300 ${isFixed ? "fixed inset-x-0 top-0" : "sticky top-0"} ${navBg}`}
         style={navBgStyle}
         aria-label="Main navigation"
       >
@@ -121,7 +127,7 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-            <Button variant="highlightoutline" className="h-10 cursor-pointer">Join My Team</Button>
+            <Button href={siteConfig.applyPath} variant="highlightoutline" className="h-10 cursor-pointer">Join My Team</Button>
           </ul>
 
           {/* Mobile burger */}
@@ -139,7 +145,7 @@ export default function Navbar() {
             <span
               className={`absolute block h-0.5 w-5 transform rounded transition-all duration-300 ease-in-out ${
                 isOpen ? "translate-y-0 rotate-45" : "-translate-y-1.5 rotate-0 bg-current"
-              } ${isOpen && !isScrolled ? "bg-white" : isOpen ? "bg-current" : ""}`}
+              } ${isOpen && !showSolidNav ? "bg-white" : isOpen ? "bg-current" : ""}`}
             />
             <span
               className={`absolute block h-0.5 w-5 transform rounded transition-all duration-300 ease-in-out ${
@@ -149,7 +155,7 @@ export default function Navbar() {
             <span
               className={`absolute block h-0.5 w-5 transform rounded transition-all duration-300 ease-in-out ${
                 isOpen ? "translate-y-0 -rotate-45" : "translate-y-1.5 rotate-0 bg-current"
-              } ${isOpen && !isScrolled ? "bg-white" : isOpen ? "bg-current" : ""}`}
+              } ${isOpen && !showSolidNav ? "bg-white" : isOpen ? "bg-current" : ""}`}
             />
           </button>
         </Container>

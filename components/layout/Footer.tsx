@@ -32,7 +32,7 @@ export default function Footer() {
             </h3>
             <div className="mt-4">
               <Button
-                href="/#contact"
+                href={siteConfig.applyPath}
                 variant="highlight"
                 className="shadow-sm"
                 aria-label="Join my team"

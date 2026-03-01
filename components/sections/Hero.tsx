@@ -19,7 +19,7 @@ interface HeroProps {
 export default function Hero({
   titleLines = ["Unlock the path to", "your dream", "physique."],
   ctaLabel = "Join My Team",
-  ctaHref = "/#contact",
+  ctaHref = siteConfig.applyPath,
   backgroundImageUrl = "/images/clark-outdoor-flexv4.jpeg",
   overlayClassName = "bg-black/60",
 }: HeroProps) {

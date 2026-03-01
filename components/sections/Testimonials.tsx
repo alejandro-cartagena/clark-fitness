@@ -189,7 +189,7 @@ export default function Testimonials() {
         </div>
         {/* CTA */}
         <div className={`mt-10 flex justify-center sm:mt-12 ${mont.className}`}>
-          <Button href="/#contact" variant="highlightoutline" className="rounded-lg px-8 py-3">
+          <Button href={siteConfig.applyPath} variant="highlightoutline" className="rounded-lg px-8 py-3">
             Join the Movement
           </Button>
         </div>

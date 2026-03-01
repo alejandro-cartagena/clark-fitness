@@ -2,6 +2,7 @@
 
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
+import { siteConfig } from "@/config/site";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 
@@ -39,7 +40,7 @@ export default function HeroV2({
   imageUrl = defaultImageUrl,
   imageAlt = defaultImageAlt,
   primaryCtaLabel = "Let's Start Today",
-  primaryCtaHref = "/#contact",
+  primaryCtaHref = siteConfig.applyPath,
   secondaryCtaLabel = "More Details",
   secondaryCtaHref = "/#programs",
 }: HeroV2Props) {

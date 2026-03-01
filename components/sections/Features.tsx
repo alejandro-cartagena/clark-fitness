@@ -156,7 +156,7 @@ export default function Features({ eyebrow = "Features" }: FeaturesProps) {
         {/* CTA + disclaimer */}
         <div className="mt-12 flex flex-col items-center gap-3 text-center sm:mt-14">
           <Button
-            href="/#contact"
+            href={siteConfig.applyPath}
             variant="primary"
             
             className="px-6 py-3"

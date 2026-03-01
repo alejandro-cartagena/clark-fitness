@@ -32,7 +32,7 @@ export default function WhyMe({
   subtitle = "Who is Charm Fitness for?",
   bullets = defaultBullets,
   ctaText = "Get Started",
-  ctaHref = "#programs",
+  ctaHref = siteConfig.applyPath,
 }: WhyMeProps) {
   return (
     <section

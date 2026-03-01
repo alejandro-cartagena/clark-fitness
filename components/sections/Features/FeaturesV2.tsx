@@ -219,7 +219,7 @@ export default function FeaturesV2({ eyebrow = "Features" }: FeaturesV2Props) {
 
         {/* CTA + disclaimer */}
         <div className="mt-12 flex flex-col items-center gap-3 text-center sm:mt-14">
-          <Button href="/#contact" variant="highlight" className="px-6 py-3">
+          <Button href={siteConfig.applyPath} variant="highlight" className="px-6 py-3">
             Apply for Coaching
           </Button>
           <p
