@@ -22,6 +22,16 @@ export default function Navbar() {
     }
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    setIsOpen(false);
+    if (pathname !== "/" || !href.startsWith("/#")) return;
+    const id = href.replace("/#", "");
+    if (!id) return;
+    e.preventDefault();
+    const el = document.getElementById(id);
+    el?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   // Scroll: transparent at top, solid when scrolled
   useEffect(() => {
     function handleScroll() {
@@ -104,6 +114,7 @@ export default function Navbar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`text-sm uppercase tracking-wider transition-colors ${textClass}`}
                 >
                   {item.label}
@@ -204,7 +215,7 @@ export default function Navbar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="block rounded-md px-3 py-2 text-sm font-medium tracking-wide transition-colors hover:opacity-90"
                   style={{
                     color: siteConfig.branding.colors.text.primary,

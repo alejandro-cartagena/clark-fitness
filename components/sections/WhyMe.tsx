@@ -31,7 +31,7 @@ export default function WhyMe({
   videoPlaceholderSrc = null,
   subtitle = "Who is Charm Fitness for?",
   bullets = defaultBullets,
-  ctaText = "Join the Team",
+  ctaText = "Get Started",
   ctaHref = "#programs",
 }: WhyMeProps) {
   return (

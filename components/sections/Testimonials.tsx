@@ -142,6 +142,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 export default function Testimonials() {
   return (
     <section
+      id="testimonials"
       className="w-full py-16 sm:py-20 lg:py-24"
       style={{ backgroundColor: siteConfig.branding.colors.background.secondary }}
       aria-labelledby="testimonials-heading"
@@ -188,7 +189,7 @@ export default function Testimonials() {
         </div>
         {/* CTA */}
         <div className={`mt-10 flex justify-center sm:mt-12 ${mont.className}`}>
-          <Button href="/#contact" variant="outline" className="rounded-lg px-8 py-3">
+          <Button href="/#contact" variant="highlightoutline" className="rounded-lg px-8 py-3">
             Join the Movement
           </Button>
         </div>

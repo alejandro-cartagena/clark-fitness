@@ -26,7 +26,7 @@ export default function SocialIcons() {
             className="text-gray-500 transition hover:text-zinc-100"
             aria-label={social.platform}
           >
-            <Icon size={20} />
+            <Icon size={25} />
           </a>
         );
       })}

@@ -92,8 +92,8 @@ function AnimatedStat({ value, label, isVisible }: AnimatedStatProps) {
 }
 
 const defaultStats = [
-  { value: "50+", label: "lbs lost" },
-  { value: "6", label: "years committed" },
+  { value: "30+", label: "lbs muscle gained" },
+  { value: "8+", label: "years committed" },
   { value: "100%", label: "mindset shift" },
 ];
 

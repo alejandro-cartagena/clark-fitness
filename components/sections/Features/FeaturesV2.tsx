@@ -143,6 +143,7 @@ interface FeaturesV2Props {
 export default function FeaturesV2({ eyebrow = "Features" }: FeaturesV2Props) {
   return (
     <section
+      id="features"
       className="w-full overflow-x-hidden py-16 sm:py-20 lg:py-24"
       style={{ backgroundColor: siteConfig.branding.colors.background.secondary }}
       aria-labelledby="features-v2-heading"
@@ -219,7 +220,7 @@ export default function FeaturesV2({ eyebrow = "Features" }: FeaturesV2Props) {
         {/* CTA + disclaimer */}
         <div className="mt-12 flex flex-col items-center gap-3 text-center sm:mt-14">
           <Button href="/#contact" variant="highlight" className="px-6 py-3">
-            Apply for Charm Fitness
+            Apply for Coaching
           </Button>
           <p
             className="text-sm"

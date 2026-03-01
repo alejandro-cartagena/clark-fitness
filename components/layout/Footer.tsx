@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="max-w-xl text-center md:text-left mx-auto md:mx-0">
             <p
               className="text-[10px] font-semibold uppercase tracking-[0.2em]"
-              style={{ color: colors.highlight.primary }}
+              style={{ color: colors.accent.primary }}
             >
               Commit to the Change
             </p>
@@ -33,7 +33,7 @@ export default function Footer() {
             <div className="mt-4">
               <Button
                 href="/#contact"
-                variant="primary"
+                variant="highlight"
                 className="shadow-sm"
                 aria-label="Join my team"
               >
