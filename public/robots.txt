@@ -1,0 +1,7 @@
+# https://clark-fitness.vercel.app/
+# Allow all crawlers full access for SEO
+User-agent: *
+Allow: /
+
+# Sitemap (add when you have one, e.g. app/sitemap.ts or static sitemap.xml)
+# Sitemap: https://clark-fitness.vercel.app/sitemap.xml

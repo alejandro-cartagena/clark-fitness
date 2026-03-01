@@ -99,7 +99,7 @@ export default function Navbar() {
             aria-label={siteConfig?.name ?? "Home"}
           >
             <Image
-              src="/images/clark-logov2.png"
+              src={siteConfig.logo}
               alt={siteConfig?.name ?? "Clark Fitness"}
               width={250}
               height={100}
@@ -115,7 +115,7 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`text-sm uppercase tracking-wider transition-colors ${textClass}`}
+                  className={`text-sm uppercase tracking-wider transition-colors font-semibold ${textClass}`}
                 >
                   {item.label}
                 </Link>
