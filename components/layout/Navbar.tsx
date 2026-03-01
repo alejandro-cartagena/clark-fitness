@@ -1,15 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Container from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
+import Button from "@/components/ui/Button";
 
 const SCROLL_THRESHOLD = 24;
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   // Scroll: transparent at top, solid when scrolled
   useEffect(() => {
@@ -65,7 +76,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed inset-x-0 top-0 z-50 h-16 transition-all duration-300 ${navBg}`}
+        className={`fixed inset-x-0 top-0 z-50 h-20 transition-all duration-300 ${navBg}`}
         style={navBgStyle}
         aria-label="Main navigation"
       >
@@ -73,10 +84,18 @@ export default function Navbar() {
           {/* Brand */}
           <Link
             href="/"
-            className={`relative z-50 select-none text-base font-semibold tracking-wide transition-colors ${textClass}`}
+            onClick={handleLogoClick}
+            className="relative z-50 flex cursor-pointer select-none items-center transition-opacity hover:opacity-90"
             aria-label={siteConfig?.name ?? "Home"}
           >
-            {siteConfig?.name ?? "Brand"}
+            <Image
+              src="/images/clark-logov2.png"
+              alt={siteConfig?.name ?? "Clark Fitness"}
+              width={250}
+              height={100}
+              className="h-18 md:h-25 w-full object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -91,6 +110,7 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
+            <Button variant="highlightoutline" className="h-10 cursor-pointer">Join My Team</Button>
           </ul>
 
           {/* Mobile burger */}

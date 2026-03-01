@@ -101,7 +101,7 @@ export default function MyTransformation({
   eyebrow = "My journey",
   heading = "From Where I Was to Who I Am",
   subheading = "I didn’t just change my body—I rebuilt my habits, discipline, and confidence. Now I help others do the same.",
-  beforeImageUrl = "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop",
+  beforeImageUrl = "/images/clark-before.jpeg",
   afterImageUrl = "/images/clark-gym-flexv4.jpeg",
   beforeLabel = "Before",
   afterLabel = "After",
@@ -170,13 +170,13 @@ export default function MyTransformation({
                 backgroundColor: "var(--bg-secondary)",
               }}
             >
-              <div className="relative aspect-5/5 w-full overflow-hidden bg-zinc-100">
+              <div className="relative aspect-[5/5] w-full overflow-hidden bg-zinc-100">
                 <Image
                   src={beforeImageUrl}
                   alt="Before transformation"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+                  className="object-cover object-[50%_30%] transition duration-500 group-hover:scale-[1.02]"
                   priority={false}
                 />
                 <div
@@ -201,7 +201,7 @@ export default function MyTransformation({
                 backgroundColor: "var(--bg-secondary)",
               }}
             >
-              <div className="relative aspect-5/5 w-full overflow-hidden bg-zinc-100">
+              <div className="relative aspect-[5/5] w-full overflow-hidden bg-zinc-100">
                 <Image
                   src={afterImageUrl}
                   alt="After transformation"

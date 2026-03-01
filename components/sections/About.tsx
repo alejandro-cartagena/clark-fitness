@@ -23,7 +23,7 @@ interface AboutProps {
 
 export default function About({
   eyebrow = "This Is My Story",
-  heading = "I'M FITNESS TRAINER",
+  heading = "I'M CLARK",
   paragraphs = [paragraph1, paragraph2],
 }: AboutProps) {
   return (
@@ -66,14 +66,14 @@ export default function About({
             </div>
             {/* Bottom — full width on tablet and down, shorter height; left column only on lg */}
             <div
-              className="relative aspect-[4/3] overflow-hidden rounded-xl border-2 shadow-[0_4px_14px_rgba(0,0,0,0.3)] col-span-2 col-start-1 row-start-2 lg:col-span-1 lg:aspect-[3/4]"
+              className="relative aspect-[3/3] overflow-hidden rounded-xl border-2 shadow-[0_4px_14px_rgba(0,0,0,0.3)] col-span-2 col-start-1 row-start-2 lg:col-span-1 lg:aspect-[3/4]"
               style={{ borderColor: siteConfig.branding.colors.border, backgroundColor: siteConfig.branding.colors.background.primary }}
             >
               <Image
                 src={imageSmall2}
                 alt="Fitness trainer — gym and coaching"
                 fill
-                className="object-cover object-center"
+                className="object-cover object-[50%_20%] lg:object-center"
                 sizes="(max-width: 1023px) 100vw, 200px"
               />
             </div>

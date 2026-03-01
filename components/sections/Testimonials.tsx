@@ -25,46 +25,46 @@ const testimonials: Testimonial[] = [
   {
     id: "1",
     beforeImageUrl:
-      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop",
+      "/images/alejandro-beforev3.jpg",
     afterImageUrl:
-      "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=800&auto=format&fit=crop",
+      "/images/alejandro-afterv3.jpg",
     quote:
       "The structure and accountability made all the difference. I finally built the habits that stuck.",
-    name: "Alex M.",
-    result: "Gained 12 lbs muscle • 16 weeks",
+    name: "Alejandro C.",
+    result: "Gained 20 lbs of muscle • 24 weeks",
   },
   {
     id: "2",
     beforeImageUrl:
-      "https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=800&auto=format&fit=crop",
+    "/images/random-before.png",
     afterImageUrl:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop",
+    "/images/random-after.png",
     quote:
-      "I dropped 25 pounds without feeling deprived. The nutrition guidance was game-changing.",
-    name: "Jordan K.",
-    result: "Lost 25 lbs • 14 weeks",
+    "Best investment I've made in myself. My energy and confidence are through the roof.",
+    name: "Michael T.",
+    result: "Lost 20 lbs of fat • 24 weeks",
   },
   {
     id: "3",
     beforeImageUrl:
-      "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=800&auto=format&fit=crop",
+      "/images/orlando-beforev2.jpg",
     afterImageUrl:
-      "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=800&auto=format&fit=crop",
+      "/images/orlando-afterv2.jpg",
     quote:
-      "Best investment I've made in myself. My energy and confidence are through the roof.",
-    name: "Sam T.",
-    result: "Recomp • 20 weeks",
+      "I dropped 25 pounds without feeling deprived. The nutrition guidance was game-changing.",
+    name: "Orlando C.",
+    result: "Lost 25 lbs of fat • 14 weeks",
   },
   {
     id: "4",
     beforeImageUrl:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop",
+      "/images/juan-beforev2.jpg",
     afterImageUrl:
-      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop",
+      "/images/juan-afterv2.jpg",
     quote:
       "Personalized programming and weekly check-ins kept me consistent. Results speak for themselves.",
-    name: "Casey L.",
-    result: "Lost 18 lbs • 12 weeks",
+    name: "Juan O.",
+    result: "Lost 18 lbs of fat • 12 weeks",
   },
 ];
 
@@ -74,7 +74,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       className="flex h-full flex-col rounded-xl border shadow-md ring-1 ring-black/10 overflow-hidden"
       style={{
         borderColor: siteConfig.branding.colors.border,
-        backgroundColor: siteConfig.branding.colors.background.secondary,
+        backgroundColor: siteConfig.branding.colors.background.primary,
       }}
     >
       {/* Before / After side by side */}
@@ -143,7 +143,7 @@ export default function Testimonials() {
   return (
     <section
       className="w-full py-16 sm:py-20 lg:py-24"
-      style={{ backgroundColor: siteConfig.branding.colors.background.primary }}
+      style={{ backgroundColor: siteConfig.branding.colors.background.secondary }}
       aria-labelledby="testimonials-heading"
     >
       <Container>

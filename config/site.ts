@@ -1,7 +1,7 @@
 import type { SocialLink } from "@/types/social";
 
 export const siteConfig = {
-  name: "Zyzz",
+  name: "Clark",
   tagline: "Transform Your Body. Elevate Your Mind.",
   description:
     "Personal training and nutrition coaching for busy professionals.",
@@ -10,10 +10,10 @@ export const siteConfig = {
   location: "Miami, FL",
 
   navigation: [
-    { label: "About", href: "/#about" },
-    { label: "Programs", href: "/#programs" },
     { label: "Features", href: "/#features" },
+    { label: "About", href: "/#about" },
     { label: "Testimonials", href: "/#testimonials" },
+    { label: "FAQ", href: "/#faq" },
   ],
 
   socials: [

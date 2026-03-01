@@ -162,17 +162,17 @@ body {
   animation: hero-zoom 12s ease-in-out infinite alternate;
 }
 
-/* Hero CTA glow: purple + blue (Gojo-style) */
+/* Hero CTA glow: subtle purple/blue */
 .hero-cta-glow {
   --hero-glow-subtle: var(--highlight-primary);
   --hero-glow-strong: var(--accent-primary);
-  box-shadow: 0 0 12px color-mix(in srgb, var(--hero-glow-subtle) 50%, transparent),
-    0 0 24px color-mix(in srgb, var(--accent-primary) 30%, transparent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--hero-glow-subtle) 25%, transparent),
+    0 0 16px color-mix(in srgb, var(--accent-primary) 15%, transparent);
   transition: box-shadow 0.25s ease;
 }
 .hero-cta-glow:hover {
-  box-shadow: 0 0 24px color-mix(in srgb, var(--hero-glow-strong) 60%, transparent),
-    0 0 48px color-mix(in srgb, var(--highlight-primary) 40%, transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--hero-glow-strong) 35%, transparent),
+    0 0 28px color-mix(in srgb, var(--highlight-primary) 20%, transparent);
 }
 
 @layer base {

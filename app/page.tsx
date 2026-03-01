@@ -34,9 +34,9 @@ export default function Home() {
       {/* <AppFeaturesV2 /> */}
       <About />
       <MyTransformation />
-      <Marquee />
+      {/* <Marquee /> */}
       <Testimonials />
-      <Programs />
+      {/* <Programs /> */}
       <Faq />
     </div>
   );
