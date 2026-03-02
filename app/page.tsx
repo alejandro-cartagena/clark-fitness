@@ -21,6 +21,9 @@ import FeaturesV2 from "@/components/sections/Features/FeaturesV2";
 // Different Versions of the App Features Section
 import AppFeaturesV2 from "@/components/sections/AppFeatures/AppFeaturesV2";
 
+// Different Versions of the Masonry Section
+import Masonry from "@/components/sections/Masonry/Masonry";
+
 export default function Home() {
   return (
     <div>
@@ -36,6 +39,7 @@ export default function Home() {
       <MyTransformation />
       {/* <Marquee /> */}
       <Testimonials />
+      <Masonry />
       {/* <Programs /> */}
       <Faq />
     </div>
