@@ -74,7 +74,7 @@ export default function Masonry() {
               className="mt-4 max-w-2xl text-sm leading-relaxed sm:text-base"
               style={{ color: branding.colors.text.secondary }}
             >
-              Clark doesn&apos;t just coach smarter training and nutrition—he partners with{" "}
+              I don't just coach smarter training and nutrition—I partners with{" "}
               <span className="font-semibold" style={{ color: branding.colors.text.primary }}>
                 HTLT
               </span>{" "}

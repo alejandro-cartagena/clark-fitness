@@ -145,7 +145,12 @@ export default function FeaturesV2({ eyebrow = "Features" }: FeaturesV2Props) {
     <section
       id="features"
       className="w-full overflow-x-hidden py-16 sm:py-20 lg:py-24"
-      style={{ backgroundColor: siteConfig.branding.colors.background.secondary }}
+      style={{
+        backgroundImage: `
+          radial-gradient(circle at top, ${siteConfig.branding.colors.accent.primary}22 0, transparent 55%),
+          linear-gradient(to bottom, ${siteConfig.branding.colors.background.primary}, ${siteConfig.branding.colors.background.secondary})
+        `,
+      }}
       aria-labelledby="features-v2-heading"
     >
       <Container>

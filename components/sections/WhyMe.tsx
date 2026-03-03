@@ -38,7 +38,12 @@ export default function WhyMe({
     <section
       aria-labelledby="why-me-heading"
       className="relative isolate w-full overflow-hidden py-16 sm:py-20 lg:py-28"
-      style={{ backgroundColor: siteConfig.branding.colors.background.primary }}
+      style={{
+        backgroundImage: `
+          radial-gradient(circle at bottom, ${siteConfig.branding.colors.highlight.primary}22 0, transparent 55%),
+          linear-gradient(to bottom, ${siteConfig.branding.colors.background.primary}, ${siteConfig.branding.colors.background.secondary})
+        `,
+      }}
     >
       <Container size="narrow">
         {/* Main title */}
