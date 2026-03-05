@@ -1,3 +1,5 @@
+"use client";
+
 import { useId } from "react";
 import type { HTMLAttributes } from "react";
 
@@ -56,6 +58,7 @@ export default function Iphone({
         muted
         playsInline
         preload="metadata"
+        onEnded={(e) => e.currentTarget.play()}
       />
     </div>
   );
@@ -140,6 +143,7 @@ export default function Iphone({
                   playsInline
                   preload="metadata"
                   style={{ maxWidth: "100%", maxHeight: "100%" }}
+                  onEnded={(e) => e.currentTarget.play()}
                 />
               </div>
             </foreignObject>
