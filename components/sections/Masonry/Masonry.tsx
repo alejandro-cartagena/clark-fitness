@@ -34,6 +34,42 @@ const masonryImages = [
     label: "Dialed-In Supplement Protocol",
     pill: "Stacked For Results",
   },
+  {
+    src: "/images/htlt-5.JPG",
+    alt: "HTLT products on a table",
+    label: "HTLT Products",
+    pill: "Stacked For Results",
+  },
+  {
+    src: "/images/htlt-6.JPG",
+    alt: "HTLT products on a table",
+    label: "HTLT Products",
+    pill: "Stacked For Results",
+  },
+  {
+    src: "/images/htlt-7.JPG",
+    alt: "HTLT products on a table",
+    label: "HTLT Products",
+    pill: "Stacked For Results",
+  },
+  {
+    src: "/images/htlt-8.JPEG",
+    alt: "HTLT products on a table",
+    label: "HTLT Products",
+    pill: "Stacked For Results",
+  },
+  {
+    src: "/images/htlt-9.JPEG",
+    alt: "HTLT products on a table",
+    label: "HTLT Products",
+    pill: "Stacked For Results",
+  },
+  {
+    src: "/images/htlt-10.JPEG",
+    alt: "HTLT products on a table",
+    label: "HTLT Products",
+    pill: "Stacked For Results",
+  },
 ] as const;
 
 const htltSponsor = siteConfig.sponsors.find((sponsor) => sponsor.name === "HTLT");
