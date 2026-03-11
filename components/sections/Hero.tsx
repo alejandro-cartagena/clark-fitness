@@ -17,8 +17,8 @@ interface HeroProps {
 }
 
 export default function Hero({
-  titleLines = ["Unlock the path to", "your dream", "physique."],
-  ctaLabel = "Join My Team",
+  titleLines = ["Train with Clark", "Transform your", "physique."],
+  ctaLabel = "Apply for Coaching",
   ctaHref = siteConfig.applyPath,
   backgroundImageUrl = "/images/clark-outdoor-flexv4.jpeg",
   overlayClassName = "bg-black/60",
