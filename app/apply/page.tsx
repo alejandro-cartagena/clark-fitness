@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
-import TypeformApplyEmbed from "@/components/embed/TypeformApplyEmbed";
+import GoogleDocsApplyEmbed from "@/components/embed/GoogleDocsApplyEmbed";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default function ApplyPage() {
         <h1 className="sr-only">
           Apply for coaching with {siteConfig.name}
         </h1>
-        <TypeformApplyEmbed />
+        <GoogleDocsApplyEmbed />
       </Container>
     </main>
   );

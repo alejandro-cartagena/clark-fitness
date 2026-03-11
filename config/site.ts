@@ -5,7 +5,7 @@ export const siteConfig = {
   /** Logo path (public URL). Use in Navbar, Footer, etc. */
   logo: "/images/clark-logov2.png",
   /** Path for the apply/join CTA (Typeform page). */
-  applyPath: "/apply",
+  applyPath: "https://forms.gle/FoRsLLBEecuw5Ru29",
   tagline: "Transform Your Body. Elevate Your Mind.",
   description:
     "Personal training and nutrition coaching for busy professionals.",
