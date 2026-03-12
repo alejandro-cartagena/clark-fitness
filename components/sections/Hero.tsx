@@ -17,7 +17,7 @@ interface HeroProps {
 }
 
 export default function Hero({
-  titleLines = ["Train with Clark", "Transform your", "physique."],
+  titleLines = ["Build the Physique", "You Actually", "Want."],
   ctaLabel = "Apply for Coaching",
   ctaHref = siteConfig.applyPath,
   backgroundImageUrl = "/images/clark-outdoor-flexv4.jpeg",
@@ -61,10 +61,19 @@ export default function Hero({
           {/* Accent underline */}
           <div className="mt-3 h-1 w-20 sm:w-24" style={{ backgroundColor: siteConfig.branding.colors.accent.primary }} aria-hidden="true" />
 
+          {/* Subline */}
+          <p
+            className="mt-4 text-sm sm:text-base lg:text-lg font-medium tracking-wide text-white/85"
+            style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.7)" }}
+          >
+            Custom training, nutrition, and weekly accountability.
+          </p>
+
+
           {/* CTA */}
           <div className={`mt-6 ${mont.className}`}>
             <span className="hero-cta-glow inline-flex rounded-md">
-              <Button href={ctaHref} variant="highlight" className="text-base md:text-xl shadow-sm">
+              <Button href={ctaHref} variant="highlight" className="text-base md:text-lg shadow-sm">
                 {ctaLabel}
               </Button>
             </span>
