@@ -36,17 +36,6 @@ const testimonials: Testimonial[] = [
   {
     id: "2",
     beforeImageUrl:
-    "/images/random-before.png",
-    afterImageUrl:
-    "/images/random-after.png",
-    quote:
-    "Best investment I've made in myself. My energy and confidence are through the roof.",
-    name: "Michael T.",
-    result: "Lost 20 lbs of fat • 24 weeks",
-  },
-  {
-    id: "3",
-    beforeImageUrl:
       "/images/orlando-beforev2.jpg",
     afterImageUrl:
       "/images/orlando-afterv2.jpg",
@@ -56,7 +45,7 @@ const testimonials: Testimonial[] = [
     result: "Lost 25 lbs of fat • 14 weeks",
   },
   {
-    id: "4",
+    id: "3",
     beforeImageUrl:
       "/images/juan-beforev2.jpg",
     afterImageUrl:

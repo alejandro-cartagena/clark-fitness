@@ -29,11 +29,11 @@ export default function Home() {
     <div>
       <Hero />
       {/* <HeroV2 /> */}
-      <WhyMe />
+      {/* <WhyMe /> */}
       {/* <WhyMeV2 /> */}
       {/* <Features /> */}
       <FeaturesV2 />
-      <AppFeatures />
+      {/* <AppFeatures /> */}
       {/* <AppFeaturesV2 /> */}
       <About />
       <MyTransformation />

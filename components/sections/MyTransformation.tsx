@@ -101,7 +101,7 @@ export default function MyTransformation({
   eyebrow = "My journey",
   heading = "From Where I Was to Who I Am",
   subheading = "I didn’t just change my body—I rebuilt my habits, discipline, and confidence. Now I help others do the same.",
-  beforeImageUrl = "/images/clark-before.jpeg",
+  beforeImageUrl = "/images/clark-overweight.jpeg",
   afterImageUrl = "/images/clark-gym-flexv4.jpeg",
   beforeLabel = "Before",
   afterLabel = "After",
@@ -176,7 +176,7 @@ export default function MyTransformation({
                   alt="Before transformation"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-[50%_30%] transition duration-500 group-hover:scale-[1.02]"
+                  className="object-cover object-bottom transition duration-500 group-hover:scale-[1.02]"
                   priority={false}
                 />
                 <div
