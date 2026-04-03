@@ -4,6 +4,7 @@ import { useRef, useCallback } from "react";
 import { siteConfig } from "@/config/site";
 
 const DEFAULT_GAP = 24;
+const SWIPE_THRESHOLD = 40;
 
 export interface CarouselProps {
   children: React.ReactNode;
@@ -34,6 +35,7 @@ export default function Carousel({
   trackClassName,
 }: CarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const scroll = useCallback(
     (direction: "prev" | "next") => {
@@ -51,6 +53,22 @@ export default function Carousel({
     [gap]
   );
 
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      if (touchStartX.current === null) return;
+      const delta = touchStartX.current - e.changedTouches[0].clientX;
+      if (Math.abs(delta) >= SWIPE_THRESHOLD) {
+        scroll(delta > 0 ? "next" : "prev");
+      }
+      touchStartX.current = null;
+    },
+    [scroll]
+  );
+
   const trackClasses =
     trackClassName ??
     "flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 scroll-smooth scrollbar-hide md:gap-6";
@@ -65,6 +83,8 @@ export default function Carousel({
           msOverflowStyle: "none",
         }}
         aria-label={ariaLabel}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         {children}
       </div>

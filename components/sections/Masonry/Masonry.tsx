@@ -62,13 +62,13 @@ const masonryImages = [
     src: "/images/htlt-9.JPEG",
     alt: "HTLT products on a table",
     label: "HTLT Products",
-    pill: "Stacked For Results",
+    pill: "Turk Builder",
   },
   {
     src: "/images/htlt-10.JPEG",
     alt: "HTLT products on a table",
     label: "HTLT Products",
-    pill: "Stacked For Results",
+    pill: "GO2 Max",
   },
 ] as const;
 

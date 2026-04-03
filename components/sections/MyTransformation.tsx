@@ -93,6 +93,7 @@ function AnimatedStat({ value, label, isVisible }: AnimatedStatProps) {
 
 const defaultStats = [
   { value: "30+", label: "lbs muscle gained" },
+  { value: "20+", label: "lbs fat lost" },
   { value: "8+", label: "years committed" },
   { value: "100%", label: "mindset shift" },
 ];
@@ -236,7 +237,10 @@ export default function MyTransformation({
           <blockquote className="max-w-xl text-center text-lg font-medium italic leading-relaxed text-(--text-primary) sm:text-xl">
             &ldquo;{quote}&rdquo;
           </blockquote>
-          <dl ref={statsRef} className="flex flex-wrap justify-center gap-8 sm:gap-12">
+          <dl
+            ref={statsRef}
+            className="flex flex-wrap justify-center gap-8 sm:gap-12 lg:mx-auto lg:grid lg:max-w-xl lg:grid-cols-2 lg:justify-items-center lg:gap-x-16 lg:gap-y-10 lg:*:min-w-0"
+          >
             {stats.map((stat) => (
               <AnimatedStat
                 key={stat.label}
