@@ -92,7 +92,7 @@ export default function Masonry() {
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
+          <div className="text-center sm:text-left">
             <p
               className="text-xs font-semibold uppercase tracking-[0.25em]"
               style={{ color: branding.colors.accent.primary }}
@@ -120,7 +120,7 @@ export default function Masonry() {
 
           {htltSponsor && (
             <aside
-              className="max-w-sm rounded-2xl border px-4 py-4 text-xs shadow-[0_18px_45px_rgba(0,0,0,0.65)] sm:text-sm"
+              className="max-w-sm mx-auto sm:mx-0 text-center sm:text-left rounded-2xl border px-4 py-4 text-xs shadow-[0_18px_45px_rgba(0,0,0,0.65)] sm:text-sm"
               style={{
                 borderColor: branding.colors.border,
                 background:
@@ -129,7 +129,7 @@ export default function Masonry() {
             >
               <p
                 className="text-[10px] font-semibold uppercase tracking-[0.3em]"
-                style={{ color: branding.colors.highlight.primary }}
+                style={{ color: branding.colors.text.primary }}
               >
                 Official Partner
               </p>
