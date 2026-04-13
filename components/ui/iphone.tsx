@@ -2,6 +2,7 @@
 
 import { useId } from "react";
 import type { HTMLAttributes } from "react";
+import Image from "next/image";
 
 const PHONE_WIDTH = 433;
 const PHONE_HEIGHT = 882;
@@ -161,12 +162,14 @@ export default function Iphone({
             >
               <div
                 className="size-full overflow-hidden"
-                style={{ width: "100%", height: "100%", overflow: "hidden" }}
+                style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden" }}
               >
-                <img
+                <Image
                   src={src}
                   alt=""
-                  className="block size-full object-cover object-top"
+                  fill
+                  sizes="(max-width: 640px) 90vw, 300px"
+                  className="object-cover object-top"
                 />
               </div>
             </foreignObject>
